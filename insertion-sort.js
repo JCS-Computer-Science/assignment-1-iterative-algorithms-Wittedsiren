@@ -5,6 +5,25 @@ function insertionSort(array) {
 	 ** is bigger
 	 */
 
+	for (let index = 0; index < array.length; index++) {
+		const element = array[index];
+		//If not the first number
+		(index == 0) ? function(){
+			//function to check if the one before is bigger
+			let checkPrev = function(){
+				let prev = array[index - 1];
+				(element < prev) ? function(){
+					array[index - 1] = element
+					array[index] = prev
+					checkPrev()
+				} : false
+			}
+			
+			checkPrev()
+
+		} : false
+	}
+
 	return array;
 }
 
