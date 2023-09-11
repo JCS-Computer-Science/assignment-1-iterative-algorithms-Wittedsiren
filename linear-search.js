@@ -9,8 +9,7 @@ function linearSearch(array, searchTerm) {
 		const element = array[i];
 		if (element == searchTerm){
 			return i;
-		}
-		
+		}		
 	}
 
 	return null;
