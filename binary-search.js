@@ -12,7 +12,7 @@ function binarySearch(array, searchTerm) {
 
 	function checkbetween(a = Array, index1, index2){
 
-		let value = a[Math.round( ( index1 + index2 ) / 2 ) / 2]
+		let value = a[Math.floor( ( index1 + index2 ) / 2 ) / 2]
 
 		if ( searchTerm == value ) {
 			term = value;
@@ -25,7 +25,7 @@ function binarySearch(array, searchTerm) {
 	}
 
 	if (array[Math.floor(array.length) / 2] > searchTerm){
-		checkbetween(array, 0 , array[Math.floor(array.length) / 2 - 1])
+		checkbetween(array, 0 , array[Math.floor(array.length) / 2])
 	} else {
 		checkbetween(array, array[Math.floor(array.length) / 2] , array.length - 1)
 	}
@@ -34,6 +34,6 @@ function binarySearch(array, searchTerm) {
 	return term;
 }
 
-console.log(binarySearch([1, 2, 3, 6, 7, 8], 6))
+console.log(binarySearch([1, 2, 3, 6, 7, 8], 2))
 
 module.exports = binarySearch;
