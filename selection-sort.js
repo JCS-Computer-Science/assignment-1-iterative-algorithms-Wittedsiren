@@ -7,26 +7,33 @@ function selectionSort(array) {
 	 ** Continue like this until you have only one element left.
 	 */
 	
-	function getSmallest(from){
+	function setSmallest(from){
 		let smallest = array[from]
-		console.log(from)
-		console.log("---")
-		for (let i = from; i < array.length - from; i++) {
-			console.log(array[i])
+		let smallestIndex = 0;
+		for (let i = from; i < array.length; i++) {
+			// console.log(array[i])
 			if (array[i] < smallest){
-				console.log(array[i])
 				smallest = array[i]
+				smallestIndex = i
 			}
 		}
-		return [smallest];
+		
+		if (smallestIndex == 0 && array[0] < smallest){
+			smallestIndex = array.length - 1
+		}
+
+		console.log(smallest, smallestIndex)
+		let con = array[from]
+		array[from] = smallest
+		array[smallestIndex] = con
+		console.log(array, from, array.length)
 	}
 
-	let newArray = []
 	for (let i = 0; i < array.length; i++) {
-		newArray.push(getSmallest(i))
+		setSmallest(i)
 	}
 
-	console.log(newArray)
+	console.log(array)
 
 	return array;
 }
