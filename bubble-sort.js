@@ -10,12 +10,11 @@ function bubbleSort(array) {
     */
 
     for (let i = 0; i < array.length; i++) {
-        //Makes it so its the index right before the one above        
-        for (let l = 0; l < array.length - i - 1; l++) {
-            if (array[l] > array[l + 1]){
-                let prev = array[l]
-                array[l] = array[l + 1]
-                array[l + 1] = prev
+        for (let beforeElement = 0; beforeElement < array.length - i - 1; beforeElement++) {
+            if (array[beforeElement] > array[beforeElement + 1]){
+                let prev = array[beforeElement]
+                array[beforeElement] = array[beforeElement + 1]
+                array[beforeElement + 1] = prev
             }
         }
     }
