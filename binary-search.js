@@ -10,16 +10,16 @@ function binarySearch(array, searchTerm) {
 	let term = null;
 	
 	let middleIndex =  array.length / 2
-	if (searchTerm == array[middleIndex]){
-		return array[middleIndex]
-	} else if (  ){
+	// if (searchTerm == array[middleIndex]){
+	// 	return array[middleIndex]
+	// } else if (  ){
 
-	}
+	// }
 	
 	
 	return term;
 }
 
-console.log(binarySearch([1,2,3,4,5,6,7, 8], 2))
+//console.log(binarySearch([1,2,3,4,5,6,7, 8], 2))
 
 module.exports = binarySearch;
