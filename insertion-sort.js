@@ -1,45 +1,28 @@
 function insertionSort(array) {
-	/*
-	 ** For each element in the array, swap it with the element
-	 ** before it over and over as long as the element before it
-	 ** is bigger
-	 */
-	for (let index = 0; index < array.length; index++) {
-		const element = array[index];
-		function checkPrev(){
-			let inFront = array[index + 1];
-			if (element > inFront ) {
-				array[index + 1] = element
-				array[index] = inFront
-				checkPrev()
-			}
-		}
-		checkPrev();	
+	let sortedArrayIndex = 1;
+	let sort = function(from){
+		if (array[from] < array[from - 1]){
+			swap(array, from, from - 1);
+		} 
+		if (from - 1 > 0){ sort(from - 1); }
+	};
+
+	let swap = function(array, i1, i2){
+		let firstIndex = array[i1];
+		array[i1] = array[i2];
+		array[i2] = firstIndex;
+	};
+
+	for (let i = 1; i < array.length; i++) {
+		let a = sortedArrayIndex;
+		if (array[a] > array[a + 1]){ swap(array, a, a + 1); }  
+		sort(sortedArrayIndex);
+		sortedArrayIndex ++ ;
 	}
-	console.log(array)
 
 	return array;
-
-	
-		// const element = array[index];
-		// //If not the first number
-		// (index == 0) ? function(){
-		// 	//function to check if the one before is bigger
-		// 	let checkPrev = function(){
-
-		// 		let prev = array[index - 1];
-		// 		(element < prev) ? function(){
-		// 			array[index - 1] = element
-		// 			array[index] = prev
-		// 			checkPrev()
-		// 		} : false
-		// 	}
-			
-		// 	checkPrev()
-
-		// } : false
 }
 
-insertionSort([30, 3, 4 ,2])
+insertionSort([7, 4, 5, 2, 6, 8, 3])
 
 module.exports = insertionSort;
