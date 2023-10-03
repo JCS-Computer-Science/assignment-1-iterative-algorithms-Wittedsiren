@@ -8,33 +8,38 @@ function binarySearch(array, searchTerm) {
 	 ** keep repeating with smaller and smaller subsets until you find the searchTerm
 	 */
 
-	let newArray = function(a, b1, b2){
-		//b1 must be smaller then b2
-		let newArray = [];
-		for (let i = b1; i < b2; i++) {
-			const element = a[i];
-			newArray.push(element)
-		}
-		return newArray
-	}
-
-	let term;
+	let termIndex;
 	let middleIndex = Math.floor(array.length / 2);
 
-	if (searchTerm == array[middleIndex]){
-		console.log("found");
-		term = array[middleIndex];
-	} else if ( searchTerm > array[middleIndex] ){
-		binarySearch(newArray(array, middleIndex, array.length), searchTerm)
-	} else { 
-		binarySearch(newArray(array, 0, middleIndex + 1), searchTerm)
-	}
-	
-	console.log(term)
-	// return term
+	while (searchTerm != array[middleIndex]){
 
+		if (array[middleIndex] > searchTerm) middleIndex =- Math.floor(middleIndex / 2) ;
+		if (array[middleIndex] < searchTerm) middleIndex =+ Math.floor(middleIndex / 2) ;
+
+		//console.log(middleIndex);
+		// if (searchTerm == array[middleIndex]){
+		// 	termIndex = middleIndex; break;
+		// } else if ( searchTerm > array[middleIndex] ){
+		// 	middleIndex = middleIndex + Math.floor(middleIndex + 1 / 2) ;
+		// } else { 
+		// 	middleIndex = middleIndex - Math.floor(middleIndex / 2) ;
+		// }	
+	}
+
+	return middleIndex;
 }
 
-console.log(binarySearch([1,2,3,4,5,6,7, 8], 2));
+// console.log(binarySearch([1, 4, 5, 6, 7, 8, 9, 10 ,11], 1));
+// console.log(binarySearch([1, 2, 3, 4, 5, 6, 7, 8], 4));
+// console.log(binarySearch([1, 4, 5, 6, 7, 8, 9], 6));
+// console.log('-');
+// console.log(binarySearch([1, 4, 5, 7, 8, 9], 1));
+// console.log(binarySearch([1, 4, 5, 7, 8, 9], 9));
+// console.log(binarySearch([1, 4, 5, 7, 8, 9], 7));
+// console.log('-');
+console.log(binarySearch([9], 9));
+console.log('-');
+console.log(binarySearch([1, 4, 8, 15, 28, 40, 45, 46], 46));
+
 
 module.exports = binarySearch;
