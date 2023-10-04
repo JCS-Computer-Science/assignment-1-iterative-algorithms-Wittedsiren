@@ -6,9 +6,8 @@ function binarySearch(array, searchTerm) {
 
 	while (start <= end){
 		let middleIndex = Math.floor(start + end / 2);
-		if (array[middleIndex] == searchTerm){ termIndex = middleIndex; break; }
-		if (array[middleIndex] > searchTerm) end -= 1; 
-		if (array[middleIndex] < searchTerm) start += 1;
+		if (array[middleIndex] == searchTerm) { termIndex = middleIndex; break; }
+		(array[middleIndex] > searchTerm) ? end -= 1 : start += 1;
 	}
 
 	return termIndex;
